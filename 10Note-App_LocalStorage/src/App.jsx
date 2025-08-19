@@ -51,7 +51,7 @@ return (
           <div className="flex flex-wrap gap-y-3">
             {notes.map((note) => (
               <div key={note.id} className="w-full">
-                {/* <TodoItem not={todo} /> */}
+                {/* <NoteCard note={note} /> */}
               </div>
             ))}
           </div>
