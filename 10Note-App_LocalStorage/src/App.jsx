@@ -16,9 +16,9 @@ function App() {
     prevNote.id === id ? note : prevNote))
   }
 
-  // const deleteNote = (id) =>{
-  //   setNotes((prev) => prev.filter((note) => note.id !== id))
-  // }
+  const deleteNote = (id) =>{
+    setNotes((prev) => prev.filter((note) => note.id !== id))
+  }
 
 
   return (
