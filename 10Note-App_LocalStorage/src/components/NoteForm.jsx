@@ -45,6 +45,59 @@ const NoteForm = () => {
 
 export default NoteForm
 
+
+
+// 1. Props
+// This component does not receive props.
+// It’s a standalone form for adding new notes.
+
+// 2. Local State (title, description)
+// title → stores the text entered in the title input.
+// description → stores the text entered in the description textarea.
+// These are controlled form fields, meaning React state always controls what’s shown.
+
+
+// 3. Context (useNote)
+// Uses useNote() to access the addNote function from the global NoteContext.
+// This lets the form send new notes to the global state.
+
+
+// 4. Adding a Note (add function)
+// Runs when the form is submitted.
+// e.preventDefault() stops page reload (default form behavior).
+// If both title & description are empty → do nothing.
+
+// Otherwise:
+// Calls addNote({ title, description }) → adds new note to global state.
+// Resets form fields (setTitle(""), setDescription("")).
+
+
+
+// 5. UI (JSX Rendering)
+// Form (<form>) wraps the inputs and button.
+// Title Input (<input type="text">) → controlled by title state.
+// Description Textarea (<textarea>) → controlled by description state.
+// Add Button (<button type="submit">) → triggers the add function to create a new note.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 5. Data Flow
 
 // Here’s the full flow when you type and click Add:
