@@ -3,32 +3,44 @@ import { useNote } from '../context'
 
 const NoteForm = () => {
 
-    const [note, setNote] = useState("")
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
 
-    const {addNote} = useNote()
+    const { addNote } = useNote()
 
     const add = (e) => {
         e.preventDefault()
-        if(!note) return // do nothing
+        if (!title && !description) return
 
-        addNote({note})
-        setNote("")
+        addNote({ title, description })
+        setTitle("")
+        setDescription("")
+
+
+
     }
 
- return (
-    <form onSubmit={add} className="flex">
-      <input
-        type="text"
-        placeholder="Write Todo..."
-        className="w-full border border-black/10 rounded-l-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
-        value={note}
-        onChange={(e) => setNote(e.target.value)}
-      />
-      <button type="submit" className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0">
-        Add
-      </button>
-    </form>
-  );
+    return (
+        <form onSubmit={add} className="flex flex-col gap-2">
+            <input
+                type="text"
+                placeholder="Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="w-full border border-black/10 rounded-lg px-3 py-1.5 bg-white/20 outline-none"
+            />
+            <textarea
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className="w-full border border-black/10 rounded-lg px-3 py-1.5 bg-white/20 outline-none"
+            />
+            <button type="submit" className="px-3 py-1 bg-green-600 text-white rounded-lg">
+                Add
+            </button>
+        </form>
+
+    );
 }
 
 export default NoteForm
