@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { NoteProvider } from './context'
 import NoteForm from './components/NoteForm'
+import NoteCard from './components/NoteCard'
 
 function App() {
 
@@ -51,7 +52,8 @@ return (
           <div className="flex flex-wrap gap-y-3">
             {notes.map((note) => (
               <div key={note.id} className="w-full">
-                {/* <NoteCard note={note} /> */}
+                <NoteCard note={note} />
+
               </div>
             ))}
           </div>
