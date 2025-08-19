@@ -21,16 +21,16 @@ function App() {
     setNotes((prev) => prev.filter((note) => note.id !== id))
   }
 
-
+  
   //Load notes from localStorage when app starts
-  useEffect(() =>{
+  useEffect(() =>{  // First useEffect runs once when app loads → it fetches saved notes from localStorage.
     const notes = JSON.parse(localStorage.getItem("notes"))
     if(notes && notes.length > 0){
       setNotes(notes)
     }
   }, [])
 
-  useEffect(() =>{
+  useEffect(() =>{ // Second useEffect runs every time notes change → updates localStorage.
     localStorage.setItem("notes", JSON.stringify(notes))
   },[notes])
 
