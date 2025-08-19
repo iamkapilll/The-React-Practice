@@ -3,10 +3,10 @@ import { useNote } from "../context"
 
 function NoteCard({ note }) {
   const [isEditable, setIsEditable] = useState(false)
-  const [title, setTitle] = useState(note.title)
-  const [description, setDescription] = useState(note.description)
+  const [title, setTitle] = useState(note.title) // for title
+  const [description, setDescription] = useState(note.description) //for description
 
-  const { updateNote, deleteNote } = useNote()
+  const { updateNote, deleteNote } = useNote()  //from Context
 
   // Save updated note
   const saveNote = () => {

@@ -14,7 +14,7 @@ function App() {
   }
 
   const updatedNote = (id, note) =>{
-    setNotes((prev) =>
+    setNotes((prev) =>  
     prev.map((prevNote) =>
     prevNote.id === id ? note : prevNote))
   }
