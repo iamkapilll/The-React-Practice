@@ -29,6 +29,10 @@ function App() {
     }
   }, [])
 
+  useEffect(() =>{
+    localStorage.setItem("notes", JSON.stringify(notes))
+  },[notes])
+
   return (
     <>
       <div className='w-full h-full p-5 bg-orange-400 rounded-sm '>hello world</div>
