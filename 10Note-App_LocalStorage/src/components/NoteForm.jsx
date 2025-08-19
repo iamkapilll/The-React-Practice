@@ -55,3 +55,29 @@ export default NoteForm
 //    setNotes((prev) => [{ id: Date.now(), ...note }, ...prev])
 // Notes are saved in localStorage by useEffect.
 // UI re-renders → the new note appears in the list.
+
+
+
+// Because your addNote already does this:
+
+// const addNote = (note) => {
+//   setNotes((prev) => [{ id: Date.now(), ...note }, ...prev])
+// }
+
+
+// So when NoteForm calls:
+
+// addNote({ title, description })
+
+
+// your note object becomes:
+
+// { id: 123456789, title: "My Title", description: "My Description" }
+
+
+// 🔹 So, the flow is now:
+
+// NoteForm → user types title & description → calls addNote().
+// addNote in App.jsx → updates state with { id, title, description }.
+// notes state updates → UI re-renders → <NoteCard> shows it.
+// useEffect syncs notes to localStorage.
