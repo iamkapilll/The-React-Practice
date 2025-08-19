@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
@@ -20,6 +20,14 @@ function App() {
     setNotes((prev) => prev.filter((note) => note.id !== id))
   }
 
+
+  //Load notes from localStorage when app starts
+  useEffect(() =>{
+    const notes = JSON.parse(localStorage.getItem("notes"))
+    if(notes && notes.length > 0){
+      setNotes(notes)
+    }
+  }, [])
 
   return (
     <>
