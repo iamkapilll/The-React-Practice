@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { NoteProvider } from './context'
+import NoteForm from './components/NoteForm'
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
     setNotes((prev) => prev.filter((note) => note.id !== id))
   }
 
-  
+
   //Load notes from localStorage when app starts
   useEffect(() =>{  // First useEffect runs once when app loads → it fetches saved notes from localStorage.
     const notes = JSON.parse(localStorage.getItem("notes"))
@@ -43,7 +44,7 @@ return (
           
           {/* Todo Form for adding todos */}
           <div className="mb-4">
-            {/* <TodoForm /> */}
+            <NoteForm />
           </div>
 
           {/* Display list of todos */}
