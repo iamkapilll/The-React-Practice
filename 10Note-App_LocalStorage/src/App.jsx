@@ -33,10 +33,29 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(notes))
   },[notes])
 
-  return (
-    <>
-      <div className='w-full h-full p-5 bg-orange-400 rounded-sm '>hello world</div>
-    </>
+return (
+    // Wrapping children in Context Provider so they can access todos + methods
+    <TodoProvider value={{ notes, addNote, updatedNote, deleteNote }}>
+      <div className="bg-[#172842] min-h-screen py-8">
+        <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+          <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Notes</h1>
+          
+          {/* Todo Form for adding todos */}
+          <div className="mb-4">
+            {/* <TodoForm /> */}
+          </div>
+
+          {/* Display list of todos */}
+          <div className="flex flex-wrap gap-y-3">
+            {notes.map((note) => (
+              <div key={note.id} className="w-full">
+                {/* <TodoItem not={todo} /> */}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </TodoProvider>
   )
 }
 
