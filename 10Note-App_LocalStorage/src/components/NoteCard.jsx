@@ -68,6 +68,30 @@ function NoteCard({ note }) {
 export default NoteCard
 
 
+// 🔹 Explanation of NoteCard.jsx
+
+// Props (note)
+  // The component receives a note object ({ id, title, description }) from its parent (App.jsx).
+
+// Local State (isEditable, title, description)
+  // isEditable → tells whether the note is currently being edited or just displayed.
+  // title & description → local state copies of the note’s data, so the user can type without immediately changing the global state.
+
+// Context (useNote)
+  // Gets updateNote and deleteNote methods from NoteContext (global state).
+
+// Saving changes (saveNote)
+  // When editing is finished, we call updateNote(note.id, { ...note, title, description }) → updates the global notes state.
+  // Then setIsEditable(false) → exits editing mode.
+
+// UI (JSX rendering)
+  // Displays the title in an <input> (editable if isEditable).
+  // Displays the description in a <textarea> (editable if isEditable).
+
+  // Shows two buttons:
+     // Edit/Save button: toggles editing mode OR saves changes.
+     // Delete button: removes the note by calling deleteNote(note.id).
+
 
 
 
