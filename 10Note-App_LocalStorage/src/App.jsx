@@ -10,11 +10,11 @@ function App() {
     setNotes((prev) => [{id: Date.now(), ...note}, ...prev])
   }
 
-  // const updatedNote = (id, note) =>{
-  //   setNotes((prev) =>
-  //   prev.map((prevNote) =>
-  //   prevNote.id === id ? note : prevNote))
-  // }
+  const updatedNote = (id, note) =>{
+    setNotes((prev) =>
+    prev.map((prevNote) =>
+    prevNote.id === id ? note : prevNote))
+  }
 
   // const deleteNote = (id) =>{
   //   setNotes((prev) => prev.filter((note) => note.id !== id))
