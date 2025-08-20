@@ -71,7 +71,6 @@ export default App
 // Each note = { id, title, description }
 
 // Features:
-
 // Add new note (title + description).
 
 // Edit a note.
